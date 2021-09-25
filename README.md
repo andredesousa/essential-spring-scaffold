@@ -9,6 +9,7 @@ It has a complete **RESTful API** configured, including build, test, and deploy 
 - [Project structure](#project-structure)
 - [Available gradle tasks](#available-gradle-tasks)
 - [Development mode](#development-mode)
+- [Linting and formatting code](#linting-and-formatting-code)
 - [Running unit tests](#running-unit-tests)
 - [Running integration tests](#running-integration-tests)
 - [Debugging](#debugging)
@@ -33,7 +34,8 @@ Based on best practices from the community, Spring, other github projects and de
 |  |  |  └── app
 |  |  |    ├── AppApplication.java
 |  |  |    ├── AppController.java
-|  |  |    └── AppService.java
+|  |  |    ├── AppService.java
+|  |  |    └── Swagger.java
 |  |  └── resources
 |  |    ├── application-prod.properties
 |  |    └── application.properties
@@ -41,9 +43,10 @@ Based on best practices from the community, Spring, other github projects and de
 ├── .editorconfig
 ├── .gitignore
 ├── .prettierrc.json
+├── build.gradle
 ├── CHANGELOG.md
 ├── changelog.mustache
-├── build.gradle
+├── checkstyle.xml
 ├── gradlew
 ├── gradlew.bat
 ├── LICENSE
@@ -66,6 +69,8 @@ The next tasks should be executed in a console inside the root directory:
 - `./gradlew check` - Runs all checks.
 - `./gradlew test` - Runs the unit tests.
 - `./gradlew integrationTest` - Run the integration tests.
+- `./gradlew lint` - Runs several static code analysis.
+- `./gradlew format` - Applies code formatting steps to source code in-place.
 - `./gradlew clean` - Deletes the build directory.
 - `./gradlew javadoc` - Generates Javadoc API documentation for the main source code.
 - `./gradlew generateOpenApiDocs` - Generates the spring doc openapi file.
@@ -90,6 +95,19 @@ Run `./gradlew classes -t` and `./gradlew bootRun` on different terminals to ena
 
 This app includes [Swagger](https://swagger.io/). It is available at [http://localhost:8080/swagger-ui/](http://localhost:8080/swagger-ui/).
 The OpenAPI Specification is automatically generated. Run `./gradlew generateOpenApiDocs` to see the file [openapi.json](build/docs/openapi.json).
+
+## Linting and formatting code
+
+A linter is a static code analysis tool used to flag programming errors, bugs, stylistic errors and suspicious constructs.
+
+It includes [Prettier](https://prettier.io/), [Checkstyle](https://checkstyle.sourceforge.io/) and [PMD](https://pmd.github.io/):
+
+- **Prettier** enforces a consistent style by parsing your code and re-printing it with its own rules, wrapping code when necessary.
+- **Checkstyle** finds class design problems, method design problems, and others. It also has the ability to check code layout and formatting issues.
+- **PMD** finds common programming flaws like unused variables, empty catch blocks, unnecessary object creation, and so forth.
+
+Use `./gradlew lint` to analyze your code. Many problems can be automatically fixed with `./gradlew format` task.
+Depending on our editor, you may want to add an editor extension to lint and format your code while you type or on-save.
 
 ## Running unit tests
 
@@ -165,7 +183,7 @@ The subject contains a succinct description of the change.
 
 ## Build and deployment
 
-In `ci` folder you can find scripts for your [Jenkins](https://www.jenkins.io/) CI pipeline, and an example for deploying your application with [Ansible](https://www.ansible.com/) to [Docker Swarm](https://docs.docker.com/engine/swarm/).
+In `ci` folder you can find scripts for your [Jenkins](https://www.jenkins.io/) CI pipeline and an example for deploying your application with [Ansible](https://www.ansible.com/) to [Docker Swarm](https://docs.docker.com/engine/swarm/).
 
 This project follows [Semantic Versioning](https://semver.org/) and uses git tags to define the current version of the project.
 Use `./gradlew currentVersion` to print the current version extracted from SCM and `./gradlew release` to release the current version.

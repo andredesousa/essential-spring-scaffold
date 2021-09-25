@@ -13,11 +13,12 @@ import org.mockito.junit.jupiter.MockitoExtension;
 @DisplayName("AppController")
 @ExtendWith(MockitoExtension.class)
 public class AppControllerTests {
+
     @Mock
-    AppService appService;
+    transient AppService appService;
 
     @InjectMocks
-    AppController appController;
+    transient AppController appController;
 
     @Test
     @DisplayName("#getHello returns 'Hello!' message")

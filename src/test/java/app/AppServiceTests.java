@@ -8,7 +8,8 @@ import org.junit.jupiter.api.Test;
 
 @DisplayName("AppService")
 public class AppServiceTests {
-    AppService appService;
+
+    transient AppService appService;
 
     @BeforeEach
     void initialize() {

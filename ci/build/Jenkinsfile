@@ -22,7 +22,7 @@ pipeline {
     }
     stage('Code Analysis') {
       steps {
-        sh './gradlew check -i'
+        sh './gradlew lint -i'
       }
     }
     stage('Unit Tests') {

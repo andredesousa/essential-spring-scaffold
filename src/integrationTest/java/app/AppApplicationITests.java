@@ -13,8 +13,9 @@ import org.springframework.test.web.servlet.MvcResult;
 @SpringBootTest
 @AutoConfigureMockMvc
 public class AppApplicationITests {
-	@Autowired
-    MockMvc mockMvc;
+
+    @Autowired
+    transient MockMvc mockMvc;
 
     @Test
     void getAllUsers() throws Exception {
