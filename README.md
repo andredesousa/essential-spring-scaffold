@@ -7,10 +7,13 @@ It has a complete **RESTful API** configured, including build, test, and deploy 
 ## Table of Contents
 
 - [Project structure](#project-structure)
+- [Available gradle tasks](#available-gradle-tasks)
+- [Development mode](#development-mode)
 - [Running unit tests](#running-unit-tests)
 - [Running integration tests](#running-integration-tests)
 - [Debugging](#debugging)
 - [Commit messages convention](#commit-messages-convention)
+- [Build and deployment](#build-and-deployment)
 - [Reference documentation](#reference-documentation)
 
 ## Project structure
@@ -51,6 +54,42 @@ Based on best practices from the community, Spring, other github projects and de
 All of the app's code goes in a folder named `src/main`.
 The unit tests and integration test are in the `src/test` and `src/integrationTest` folders.
 Static files are placed in `src/main/resources` folder.
+
+## Available gradle tasks
+
+The tasks in [build.gradle](build.gradle) file were built with simplicity in mind to automate as much repetitive tasks as possible and help developers focus on what really matters.
+
+The next tasks should be executed in a console inside the root directory:
+
+- `./gradlew tasks` - Displays the tasks runnable from root project 'app'.
+- `./gradlew bootRun` - Runs this project as a Spring Boot application.
+- `./gradlew check` - Runs all checks.
+- `./gradlew test` - Runs the unit tests.
+- `./gradlew integrationTest` - Run the integration tests.
+- `./gradlew clean` - Deletes the build directory.
+- `./gradlew javadoc` - Generates Javadoc API documentation for the main source code.
+- `./gradlew generateOpenApiDocs` - Generates the spring doc openapi file.
+- `./gradlew generateChangelog` - Generates a changelog from GIT repository.
+- `./gradlew dependencyUpdates` - Displays the dependency updates for the project.
+- `./gradlew build` - Assembles and tests this project.
+- `./gradlew bootJar` - Assembles an executable jar archive containing the main classes and their dependencies.
+- `./gradlew bootBuildImage` - Builds an OCI image of the application using the output of the bootJar task.
+- `./gradlew release` - Performs release, creates tag and pushes it to remote.
+- `./gradlew deploy` - Deploys the application to Docker Swarm.
+- `./gradlew help` - Displays a help message.
+
+For more details, read the [Command-Line Interface](https://docs.gradle.org/current/userguide/command_line_interface.html) documentation in the [Gradle User Manual](https://docs.gradle.org/current/userguide/userguide.html).
+
+## Development mode
+
+[Spring Boot](https://spring.io/projects/spring-boot) makes it easy to create stand-alone, production-grade Spring based Applications that you can "just run".
+Use `./gradlew bootRun` to run this project as a Spring Boot application.
+
+Beyond that, you can serve the app using continuous build which will automatically re-execute builds on file change.
+Run `./gradlew classes -t` and `./gradlew bootRun` on different terminals to enable auto restart on file change.
+
+This app includes [Swagger](https://swagger.io/). It is available at [http://localhost:8080/swagger-ui/](http://localhost:8080/swagger-ui/).
+The OpenAPI Specification is automatically generated. Run `./gradlew generateOpenApiDocs` to see the file [openapi.json](build/docs/openapi.json).
 
 ## Running unit tests
 
@@ -123,6 +162,16 @@ The related **issue** or **user story** or even **defect**.
 ### Subject
 
 The subject contains a succinct description of the change.
+
+## Build and deployment
+
+In `ci` folder you can find scripts for your [Jenkins](https://www.jenkins.io/) CI pipeline, and an example for deploying your application with [Ansible](https://www.ansible.com/) to [Docker Swarm](https://docs.docker.com/engine/swarm/).
+
+This project follows [Semantic Versioning](https://semver.org/) and uses git tags to define the current version of the project.
+Use `./gradlew currentVersion` to print the current version extracted from SCM and `./gradlew release` to release the current version.
+Use `./gradlew bootJar` to build the project and `./gradlew bootBuildImage` to build the Docker image for production.
+The build artifacts are stored in the `build/libs` directory.
+You can deploy this project to Docker Swarm using `./gradlew deploy` task.
 
 ## Reference Documentation
 
