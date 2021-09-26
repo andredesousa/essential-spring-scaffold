@@ -12,7 +12,7 @@ public class AppServiceTests {
     transient AppService appService;
 
     @BeforeEach
-    void initialize() {
+    void beforeEach() {
         appService = new AppService();
     }
 

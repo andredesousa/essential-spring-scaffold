@@ -13,6 +13,9 @@
             services:
               spring-api:
                 image: spring-api:latest
+                restart: always
+                environment:
+                  - SPRING_PROFILES_ACTIVE={{ lookup('env', 'SPRING_PROFILES_ACTIVE') }}
                 ports:
                   - "8080:8080"
         resolve_image: always
