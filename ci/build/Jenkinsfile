@@ -32,7 +32,7 @@ pipeline {
     }
     stage('Integration Tests') {
       steps {
-        sh './gradlew integration -i'
+        sh './gradlew integrationTest -i'
       }
     }
   }
@@ -51,7 +51,7 @@ pipeline {
         allowMissing: false,
         alwaysLinkToLastBuild: false,
         keepAll: false,
-        reportDir: 'build/reports/tests/integration/',
+        reportDir: 'build/reports/tests/integrationTest/',
         reportFiles: 'index.html',
         reportName: 'Integration Tests Report'
       ])

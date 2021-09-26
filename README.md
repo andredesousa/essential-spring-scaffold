@@ -133,7 +133,7 @@ You can see the HTML coverage report opening the [index.html](build/reports/jaco
 
 Use `./gradlew integrationTest` to execute the integration tests via [JUnit 5](https://junit.org/junit5/).
 Use `./gradlew integrationTest -t` to keep executing your tests while watching for file changes in the background.
-You can see the HTML report opening the [index.html](build/reports/tests/integration/index.html) file in your web browser.
+You can see the HTML report opening the [index.html](build/reports/tests/integrationTest/index.html) file in your web browser.
 
 Like unit tests, you can also run subsets of a test suite.
 See the [Test filtering](https://docs.gradle.org/current/userguide/java_testing.html#test_filtering) section of the Gradle documentation.
