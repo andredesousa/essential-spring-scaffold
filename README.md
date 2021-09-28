@@ -100,11 +100,12 @@ The OpenAPI Specification is automatically generated. Run `./gradlew generateOpe
 
 A linter is a static code analysis tool used to flag programming errors, bugs, stylistic errors and suspicious constructs.
 
-It includes [Prettier](https://prettier.io/), [Checkstyle](https://checkstyle.sourceforge.io/) and [PMD](https://pmd.github.io/):
+It includes [Prettier](https://prettier.io/), [Checkstyle](https://checkstyle.sourceforge.io/), [PMD](https://pmd.github.io/) and [SpotBugs](https://spotbugs.github.io/):
 
 - **Prettier** enforces a consistent style by parsing your code and re-printing it with its own rules, wrapping code when necessary.
 - **Checkstyle** finds class design problems, method design problems, and others. It also has the ability to check code layout and formatting issues.
 - **PMD** finds common programming flaws like unused variables, empty catch blocks, unnecessary object creation, and so forth.
+- **SpotBugs** is used to perform static analysis on Java code. It looks for instances of "bug patterns".
 
 Use `./gradlew lint` to analyze your code. Many problems can be automatically fixed with `./gradlew format` task.
 Depending on our editor, you may want to add an editor extension to lint and format your code while you type or on-save.
