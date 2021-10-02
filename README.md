@@ -92,6 +92,7 @@ Use `./gradlew bootRun` to run this project as a Spring Boot application.
 
 Beyond that, you can serve the app using continuous build which will automatically re-execute builds on file change.
 Run `./gradlew classes -t` and `./gradlew bootRun` on different terminals to enable auto restart on file change.
+However, this functionality is provided by **Spring Boot DevTools**.
 
 This app includes [Swagger](https://swagger.io/). It is available at [http://localhost:8080/swagger-ui/](http://localhost:8080/swagger-ui/).
 The OpenAPI Specification is automatically generated. Run `./gradlew generateOpenApiDocs` to see the file [openapi.json](build/docs/openapi.json).
@@ -132,7 +133,7 @@ You can see the HTML coverage report opening the [index.html](build/reports/jaco
 
 ## Running integration tests
 
-Use `./gradlew integrationTest` to execute the integration tests via [JUnit 5](https://junit.org/junit5/).
+Use `./gradlew integrationTest` to execute the integration tests via [JUnit 5](https://junit.org/junit5/) and others.
 Use `./gradlew integrationTest -t` to keep executing your tests while watching for file changes in the background.
 You can see the HTML report opening the [index.html](build/reports/tests/integrationTest/index.html) file in your web browser.
 
