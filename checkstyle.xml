@@ -11,10 +11,10 @@
     </module>
 
     <module name="TreeWalker">
-        <module name="AvoidStarImport"/>
-        <module name="UnusedImports"/>
-        <module name="RedundantImport"/>
-        <module name="DeclarationOrder"/>
+        <module name="AvoidStarImport" />
+        <module name="UnusedImports" />
+        <module name="RedundantImport" />
+        <module name="DeclarationOrder" />
         <module name="OuterTypeFilename" />
         <module name="NoLineWrap">
             <property name="tokens" value="PACKAGE_DEF, IMPORT, STATIC_IMPORT" />
