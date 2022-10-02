@@ -32,7 +32,7 @@ Based on best practices from the community, Spring, other github projects and de
 |  ├── main
 |  |  ├── java
 |  |  |  └── app
-|  |  |    ├── AppApplication.java
+|  |  |    ├── Application.java
 |  |  |    ├── AppController.java
 |  |  |    ├── AppService.java
 |  |  |    └── Swagger.java

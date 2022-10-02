@@ -12,13 +12,13 @@ import org.springframework.test.web.servlet.MvcResult;
 
 @SpringBootTest
 @AutoConfigureMockMvc
-public class AppApplicationITests {
+public class ApplicationITests {
 
     @Autowired
     transient MockMvc mockMvc;
 
     @Test
-    void getAllUsers() throws Exception {
+    void getHello() throws Exception {
         MvcResult response = mockMvc.perform(get("/")).andReturn();
 
         assertEquals("Hello World!", response.getResponse().getContentAsString());

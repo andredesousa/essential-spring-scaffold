@@ -13,8 +13,8 @@ import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
 @TestInstance(TestInstance.Lifecycle.PER_CLASS)
-@DisplayName("AppApplication")
-class AppApplicationTests {
+@DisplayName("Application")
+class ApplicationTests {
 
     transient MockedStatic<SpringApplication> springApplicationMock;
 
@@ -26,11 +26,11 @@ class AppApplicationTests {
     @Test
     void contextLoads() {
         springApplicationMock
-            .when(() -> SpringApplication.run(AppApplication.class, new String[] {}))
+            .when(() -> SpringApplication.run(Application.class, new String[] {}))
             .thenCallRealMethod();
 
-        AppApplication.main(new String[] {});
+        Application.main(new String[] {});
 
-        springApplicationMock.verify(() -> SpringApplication.run(AppApplication.class, new String[] {}), times(1));
+        springApplicationMock.verify(() -> SpringApplication.run(Application.class, new String[] {}), times(1));
     }
 }

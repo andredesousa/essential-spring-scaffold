@@ -22,7 +22,7 @@ public class AppControllerTests {
 
     @Test
     @DisplayName("#getHello returns 'Hello!' message")
-    void findAll() {
+    void getHello() {
         when(appService.getHello()).thenReturn("Hello!");
 
         assertEquals("Hello!", appController.getHello());
